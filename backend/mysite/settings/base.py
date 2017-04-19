@@ -23,6 +23,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Project Apps
+    'applications.games',
+
     # Django Packages
     'rest_framework',
 ]
