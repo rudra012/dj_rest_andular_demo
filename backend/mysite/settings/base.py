@@ -1,7 +1,11 @@
-import environ
-
+from __future__ import print_function
+import environ, os
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# print(BASE_DIR)
+BASE_DIR = environ.Path(__file__) - 4
+print(BASE_DIR)
 project_root = environ.Path(__file__) - 3
-# print(project_root)
+print(project_root)
 env = environ.Env(DEBUG=(bool, False), )
 CURRENT_ENV = 'dev'  # 'dev' is the default environment
 
@@ -36,14 +40,17 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
+# print(os.path.join(BASE_DIR, '/frontend'), "Front")
+FRONTEND_ROOT = "{0}{1}".format(BASE_DIR,'/frontend')
+print(FRONTEND_ROOT)
 STATICFILES_DIRS = [
-    env('FRONTEND_ROOT')
+    FRONTEND_ROOT
 ]
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [env('FRONTEND_ROOT')],
+        'DIRS': [FRONTEND_ROOT],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
