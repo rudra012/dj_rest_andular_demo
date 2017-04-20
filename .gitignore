@@ -2,4 +2,3 @@
 .idea/
 *.pyc
 *.db
-frontend/node_modules/
