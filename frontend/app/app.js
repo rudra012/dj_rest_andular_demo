@@ -11,15 +11,17 @@ _urlPrefixes = {
 };
 
 /* Components */
+require("./components/home/home");
 
 /* App Dependencies */
 angular.module("myApp", [
+  "Home", // this is our component
   "ngResource",
   "ngRoute",
 ]);
 
 /* Config Vars */
-// @TODO in Step 13.
+var routesConfig = require("./routes");
 
 /* App Config */
 angular.module("myApp").config(routesConfig);
